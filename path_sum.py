@@ -7,14 +7,13 @@ class TreeNode(object):
 class Solution(object):
     def hasPathSum(self, root, targetSum):
         #going to split it in two sides, LHS and RHS 
-    
         #LHS 
         tracker = 0 
         pos = root
         #while the tracker is less than the target, go left 
         while tracker < targetSum: 
             tracker += pos.left.val
-            pos = pos.left #repostion where our start is each time 
+            pos = root * 2 + 1 #repostion where our start is each time 
             if tracker == targetSum:
                 return True
         
@@ -23,7 +22,7 @@ class Solution(object):
             tracker -= pos.val
             while tracker < targetSum: 
                 tracker += pos.right.val
-                pos = pos.right #repostion tracker 
+                pos = root * 2 + 2 #repostion tracker 
                 if tracker == targetSum:
                     return True 
 
@@ -32,7 +31,7 @@ class Solution(object):
             pos = root.val 
             while tracker < targetSum: 
                 tracker += pos.right.val
-                pos = pos.right #repostion where our start is each time 
+                pos = root * 2 + 2 #repostion where our start is each time 
                 if tracker == targetSum:
                     return True
             #if more tracker go up and move right 
@@ -40,7 +39,7 @@ class Solution(object):
                 tracker -= pos.val
                 while tracker < targetSum: 
                     tracker += pos.left.val
-                    pos = pos.left #repostion tracker 
+                    pos = root * 2 + 1 #repostion tracker 
                     if tracker == targetSum:
                         return True  
 
