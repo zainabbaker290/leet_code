@@ -8,7 +8,7 @@ class Solution(object):
         if len(strs) == 1:
             return base_word
         
-        #list pos is 0????? 
+        #list pos is 0?????
         for list_pos in range(len(strs)):
             if len(base_word) < len(strs[list_pos]):
                 length = len(base_word)
